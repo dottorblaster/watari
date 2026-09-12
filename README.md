@@ -1,5 +1,7 @@
 # watari
 
+[![CI](https://github.com/dottorblaster/watari/actions/workflows/ci.yml/badge.svg)](https://github.com/dottorblaster/watari/actions/workflows/ci.yml)
+
 X11 clipboard → Wayland clipboard. One direction, no polling, no `xsel`, no
 `wl-copy`, no shell loop held together with tape.
 
@@ -20,9 +22,20 @@ while true; do
 done
 ```
 
-## Build
+## Install
+
+Straight from the repo, no clone needed:
 
 ```sh
+cargo install --git https://github.com/dottorblaster/watari
+```
+
+That lands the binary in `~/.cargo/bin/watari`. If you'd rather build it
+yourself:
+
+```sh
+git clone https://github.com/dottorblaster/watari
+cd watari
 cargo build --release
 install -Dm755 target/release/watari ~/.local/bin/watari
 ```
