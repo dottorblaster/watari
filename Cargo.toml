@@ -1,0 +1,35 @@
+[package]
+name = "watari"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.86"
+description = "One-way X11 (XWayland) CLIPBOARD to native Wayland clipboard mirror"
+license = "Apache-2.0"
+repository = "https://github.com/example/watari"
+readme = "README.md"
+keywords = ["clipboard", "wayland", "x11", "xwayland"]
+categories = ["command-line-utilities"]
+
+[lib]
+name = "watari"
+path = "src/lib.rs"
+
+[[bin]]
+name = "watari"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "=1.0.104"
+env_logger = "=0.11.11"
+log = "=0.4.34"
+wl-clipboard-rs = "=0.9.3"
+x11rb = { version = "=0.14.0", features = ["xfixes"] }
+
+[dev-dependencies]
+assert_cmd = "=2.2.2"
+predicates = "=3.1.4"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
